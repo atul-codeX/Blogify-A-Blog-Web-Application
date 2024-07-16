@@ -5,18 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Blog Website</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7f7f7; /* light gray background */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff; /* white background */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #3498db; /* blue color */
+        }
+
+        .text-muted {
+            font-size: 1.2rem;
+            color: #666; /* dark gray color */
+        }
+
+        .btn {
+            margin-right: 10px;
+        }
+
+        .article-content {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #333; /* dark gray color */
+        }
+    </style>
 </head>
 <body>
-      <div class="container">
-      <h1 class="mb-1"><%=article.title%></h1>
-      <div class="text-muted mb-2">
-        <%=article.createdAt.toLocaleDateString() %>
-      </div>
-      <a href="/" class="btn btn-secondary">All Articles</a>
-      <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
-     <div>
-        <%- article.sanitizedHTML %>
-     </div>
+    <div class="container">
+        <h1 class="mb-1"><%=article.title%></h1>
+        <div class="text-muted mb-2">
+            <%=article.createdAt.toLocaleDateString() %>
+        </div>
+        <a href="/" class="btn btn-secondary">All Articles</a>
+        <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+        <div class="article-content">
+            <%- article.sanitizedHTML %>
+        </div>
     </div>
 </body>
 </html>
